@@ -22,20 +22,29 @@
         android:layout_width="match_parent"
         android:layout_height="66dp"
         android:hint="Enter Target Score"
-        android:inputType="number" />
+        android:inputType="number"
+        android:layout_marginTop="32dp" />
 
     <!-- Score display -->
     <TextView
         android:id="@+id/tvWins"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="H:0/C:0" />
+        android:text="H:0/C:0"
+        android:layout_marginTop="32dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Human"
+        android:layout_marginTop="32dp" />
 
     <!-- Container for dice images, arranged horizontally -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="32dp">
+
 
         <!-- Dice Image 1 -->
         <ImageView
@@ -87,18 +96,20 @@
             android:layout_gravity="center"
             android:adjustViewBounds="true" />
     </LinearLayout>
+
     <!-- Computer Dice -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Computer Dice"
-        android:layout_marginTop="16dp" />
+        android:text="Computer"
+        android:layout_marginTop="32dp" />
 
     <!-- Container for computer dice images, arranged horizontally -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="32dp">
 
         <!-- Dice Image 1 -->
         <ImageView
@@ -107,7 +118,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:src="@drawable/dice1"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:adjustViewBounds="true" />
 
         <!-- Dice Image 2 -->
         <ImageView
@@ -116,7 +128,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:src="@drawable/dice2"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:adjustViewBounds="true" />
 
         <!-- Dice Image 3 -->
         <ImageView
@@ -125,7 +138,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:src="@drawable/dice3"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:adjustViewBounds="true" />
 
         <!-- Dice Image 4 -->
         <ImageView
@@ -134,7 +148,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:src="@drawable/dice4"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:adjustViewBounds="true" />
 
         <!-- Dice Image 5 -->
         <ImageView
@@ -143,7 +158,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:src="@drawable/dice5"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:adjustViewBounds="true" />
     </LinearLayout>
 
     <!-- Score display -->
@@ -152,7 +168,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Score: 0" />
+        android:text="Score: 0"
+        android:layout_marginTop="32dp" />
 
     <!-- Buttons to roll the dice and score the current roll -->
     <Button
@@ -160,15 +177,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="onThrowClick"
-        android:text="Throw" />
+        android:text="Throw"
+        android:layout_marginTop="32dp" />
 
     <Button
         android:id="@+id/btnScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="onScoreClick"
-        android:text="Score" />
+        android:text="Score"
+        android:layout_marginTop="32dp" />
 </LinearLayout>
-
-
-

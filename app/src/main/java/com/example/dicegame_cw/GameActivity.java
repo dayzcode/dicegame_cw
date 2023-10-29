@@ -104,10 +104,18 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
+
     public void onScoreClick(View view) {
         if (gameActive) {
             int currentRoundScore = calculateScore(currentDiceValues);
             humanScore += currentRoundScore;
+
+            // Update human player's dice images
+            for (int i = 0; i < 5; i++) {
+                updateDiceImage(i, computerDiceValues[i], true); // for the computer
+
+            }
+
             updateScore();
 
             rollsRemaining = 3;
@@ -116,16 +124,19 @@ public class GameActivity extends AppCompatActivity {
             if (humanScore >= targetScore) {
                 showGameResult(true);
             } else {
-                computerTurn(); // Trigger the computer's turn
+                computerTurn();
             }
         }
     }
 
 
+
     private void updateDiceImage(int diceValue, int currentDiceValue, boolean isComputer) {
         String resourceName = "dice" + currentDiceValue;
         int resID = getResources().getIdentifier(resourceName, "drawable", getPackageName());
+
         if (isComputer) {
+            // Update computer's dice images
             switch (diceValue) {
                 case 0:
                     computerDiceImage1.setImageResource(resID);
@@ -144,6 +155,7 @@ public class GameActivity extends AppCompatActivity {
                     break;
             }
         } else {
+            // Update human player's dice images
             switch (diceValue) {
                 case 0:
                     diceImage1.setImageResource(resID);
@@ -163,6 +175,9 @@ public class GameActivity extends AppCompatActivity {
             }
         }
     }
+
+
+
 
     private void computerTurn() {
         if (gameActive) {
