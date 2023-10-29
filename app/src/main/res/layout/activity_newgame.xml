@@ -9,7 +9,6 @@
     android:padding="16dp"
     tools:context=".GameActivity">
 
-
     <!-- Button to go back to the main activity -->
     <Button
         android:id="@+id/btnBackToMain"
@@ -45,7 +44,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:src="@drawable/dice1"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:adjustViewBounds="true" />
 
         <!-- Dice Image 2 -->
         <ImageView
@@ -54,7 +54,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:src="@drawable/dice2"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:adjustViewBounds="true" />
 
         <!-- Dice Image 3 -->
         <ImageView
@@ -63,7 +64,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:src="@drawable/dice3"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:adjustViewBounds="true" />
 
         <!-- Dice Image 4 -->
         <ImageView
@@ -72,7 +74,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:src="@drawable/dice4"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:adjustViewBounds="true" />
 
         <!-- Dice Image 5 -->
         <ImageView
@@ -81,8 +84,68 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:src="@drawable/dice5"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true" />
+    </LinearLayout>
+    <!-- Computer Dice -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Computer Dice"
+        android:layout_marginTop="16dp" />
+
+    <!-- Container for computer dice images, arranged horizontally -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!-- Dice Image 1 -->
+        <ImageView
+            android:id="@+id/computerDiceImage1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/dice1"
+            android:layout_gravity="center" />
+
+        <!-- Dice Image 2 -->
+        <ImageView
+            android:id="@+id/computerDiceImage2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/dice2"
+            android:layout_gravity="center" />
+
+        <!-- Dice Image 3 -->
+        <ImageView
+            android:id="@+id/computerDiceImage3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/dice3"
+            android:layout_gravity="center" />
+
+        <!-- Dice Image 4 -->
+        <ImageView
+            android:id="@+id/computerDiceImage4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/dice4"
+            android:layout_gravity="center" />
+
+        <!-- Dice Image 5 -->
+        <ImageView
+            android:id="@+id/computerDiceImage5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/dice5"
             android:layout_gravity="center" />
     </LinearLayout>
+
     <!-- Score display -->
     <TextView
         android:id="@+id/tvScore"
@@ -106,3 +169,6 @@
         android:onClick="onScoreClick"
         android:text="Score" />
 </LinearLayout>
+
+
+

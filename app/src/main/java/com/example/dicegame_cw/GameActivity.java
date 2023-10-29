@@ -11,13 +11,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import java.util.Arrays;
-import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class GameActivity extends AppCompatActivity {
 
-    private ImageView diceImage;
     private Button btnBackToMain;
     private Button btnThrow;
     private Button btnScore;
@@ -26,6 +24,11 @@ public class GameActivity extends AppCompatActivity {
     private ImageView diceImage3;
     private ImageView diceImage4;
     private ImageView diceImage5;
+    private ImageView computerDiceImage1;
+    private ImageView computerDiceImage2;
+    private ImageView computerDiceImage3;
+    private ImageView computerDiceImage4;
+    private ImageView computerDiceImage5;
     private TextView tvScore;
     private TextView tvWins;
     private Dice dice;
@@ -38,6 +41,7 @@ public class GameActivity extends AppCompatActivity {
     private boolean gameActive = true;
     private EditText etTargetScore;
     private int[] currentDiceValues = new int[5];
+    private int[] computerDiceValues = new int[5];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +56,11 @@ public class GameActivity extends AppCompatActivity {
         diceImage3 = findViewById(R.id.diceImage3);
         diceImage4 = findViewById(R.id.diceImage4);
         diceImage5 = findViewById(R.id.diceImage5);
+        computerDiceImage1 = findViewById(R.id.computerDiceImage1);
+        computerDiceImage2 = findViewById(R.id.computerDiceImage2);
+        computerDiceImage3 = findViewById(R.id.computerDiceImage3);
+        computerDiceImage4 = findViewById(R.id.computerDiceImage4);
+        computerDiceImage5 = findViewById(R.id.computerDiceImage5);
         tvScore = findViewById(R.id.tvScore);
         etTargetScore = findViewById(R.id.etTargetScore);
         tvWins = findViewById(R.id.tvWins);
@@ -79,10 +88,15 @@ public class GameActivity extends AppCompatActivity {
         if (gameActive && rollsRemaining > 0) {
             Log.d("YourTag", "Throw button clicked");
             rollsRemaining--;
+
+            // Simulate rolling 5 dice for the human player and the computer
             for (int i = 0; i < 5; i++) {
-                currentDiceValues[i] = rollDice(); // Simulate rolling a die
-                updateDiceImage(i, currentDiceValues[i]);
+                currentDiceValues[i] = rollDice(); // Simulate rolling a die for the human player
+                computerDiceValues[i] = rollDice(); // Simulate rolling a die for the computer
+                updateDiceImage(i, currentDiceValues[i], false); // Update human player's dice image
+                updateDiceImage(i, computerDiceValues[i], true);  // Update computer's dice image
             }
+
             if (rollsRemaining == 0) {
                 // Automatically update score after the maximum of 3 rolls
                 onScoreClick(view);
@@ -102,40 +116,62 @@ public class GameActivity extends AppCompatActivity {
             if (humanScore >= targetScore) {
                 showGameResult(true);
             } else {
-                computerTurn();
+                computerTurn(); // Trigger the computer's turn
             }
         }
     }
 
-    private void updateDiceImage(int diceValue, int currentDiceValue) {
+
+    private void updateDiceImage(int diceValue, int currentDiceValue, boolean isComputer) {
         String resourceName = "dice" + currentDiceValue;
         int resID = getResources().getIdentifier(resourceName, "drawable", getPackageName());
-        switch (diceValue) {
-            case 0:
-                diceImage1.setImageResource(resID);
-                break;
-            case 1:
-                diceImage2.setImageResource(resID);
-                break;
-            case 2:
-                diceImage3.setImageResource(resID);
-                break;
-            case 3:
-                diceImage4.setImageResource(resID);
-                break;
-            case 4:
-                diceImage5.setImageResource(resID);
-                break;
+        if (isComputer) {
+            switch (diceValue) {
+                case 0:
+                    computerDiceImage1.setImageResource(resID);
+                    break;
+                case 1:
+                    computerDiceImage2.setImageResource(resID);
+                    break;
+                case 2:
+                    computerDiceImage3.setImageResource(resID);
+                    break;
+                case 3:
+                    computerDiceImage4.setImageResource(resID);
+                    break;
+                case 4:
+                    computerDiceImage5.setImageResource(resID);
+                    break;
+            }
+        } else {
+            switch (diceValue) {
+                case 0:
+                    diceImage1.setImageResource(resID);
+                    break;
+                case 1:
+                    diceImage2.setImageResource(resID);
+                    break;
+                case 2:
+                    diceImage3.setImageResource(resID);
+                    break;
+                case 3:
+                    diceImage4.setImageResource(resID);
+                    break;
+                case 4:
+                    diceImage5.setImageResource(resID);
+                    break;
+            }
         }
     }
 
     private void computerTurn() {
         if (gameActive) {
             rollsRemaining = 3;
-            int[] computerDiceValues = new int[5];
+
+            // Simulate rolling 5 dice for the computer
             for (int i = 0; i < 5; i++) {
-                computerDiceValues[i] = rollDice(); // Simulate rolling a die for the computer
-                updateDiceImage(i, computerDiceValues[i]);
+                computerDiceValues[i] = rollDice();
+                updateDiceImage(i, computerDiceValues[i], true); // Update computer's dice image
             }
 
             int computerRoundScore = calculateScore(computerDiceValues);
@@ -169,6 +205,7 @@ public class GameActivity extends AppCompatActivity {
         computerScore = 0;
         rollsRemaining = 3;
         Arrays.fill(currentDiceValues, 0);
+        Arrays.fill(computerDiceValues, 0);
         gameActive = true;
         updateScore();
     }
@@ -192,3 +229,4 @@ public class GameActivity extends AppCompatActivity {
         return (int) (Math.random() * 6) + 1;
     }
 }
+
