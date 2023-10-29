@@ -1,0 +1,108 @@
+<!-- Replace the existing content with this layout -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".GameActivity">
+
+
+    <!-- Button to go back to the main activity -->
+    <Button
+        android:id="@+id/btnBackToMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onBackToMainClick"
+        android:text="Back to Main" />
+
+    <EditText
+        android:id="@+id/etTargetScore"
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:hint="Enter Target Score"
+        android:inputType="number" />
+
+    <!-- Score display -->
+    <TextView
+        android:id="@+id/tvWins"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="H:0/C:0" />
+
+    <!-- Container for dice images, arranged horizontally -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!-- Dice Image 1 -->
+        <ImageView
+            android:id="@+id/diceImage1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/dice1"
+            android:layout_gravity="center" />
+
+        <!-- Dice Image 2 -->
+        <ImageView
+            android:id="@+id/diceImage2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/dice2"
+            android:layout_gravity="center" />
+
+        <!-- Dice Image 3 -->
+        <ImageView
+            android:id="@+id/diceImage3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/dice3"
+            android:layout_gravity="center" />
+
+        <!-- Dice Image 4 -->
+        <ImageView
+            android:id="@+id/diceImage4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/dice4"
+            android:layout_gravity="center" />
+
+        <!-- Dice Image 5 -->
+        <ImageView
+            android:id="@+id/diceImage5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/dice5"
+            android:layout_gravity="center" />
+    </LinearLayout>
+    <!-- Score display -->
+    <TextView
+        android:id="@+id/tvScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Score: 0" />
+
+    <!-- Buttons to roll the dice and score the current roll -->
+    <Button
+        android:id="@+id/btnThrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onThrowClick"
+        android:text="Throw" />
+
+    <Button
+        android:id="@+id/btnScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onScoreClick"
+        android:text="Score" />
+</LinearLayout>
