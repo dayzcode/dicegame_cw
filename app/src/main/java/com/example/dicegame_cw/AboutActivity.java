@@ -22,11 +22,10 @@ public class AboutActivity extends AppCompatActivity {
                 // Create and display the AboutFragment
                 AboutFragment aboutFragment = new AboutFragment();
                 getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, aboutFragment)
-                        .addToBackStack(null)
-                        .commit();
+                        .replace(R.id.fragment_container, aboutFragment) // Replace the fragment container with the AboutFragment
+                        .addToBackStack(null) // Add the transaction to the back stack
+                        .commit(); // Commit the transaction
             }
         });
     }
 }
-

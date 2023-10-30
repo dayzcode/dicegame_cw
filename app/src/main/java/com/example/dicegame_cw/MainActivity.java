@@ -11,22 +11,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-    private Button btnThrow;
-    private Button btnScore;
-    private ImageView diceImage;
-    private TextView tvScore;
-    private TextView tvWins;
-    private Dice dice;
-    private int humanScore = 0;
-    private int computerScore = 0;
-    private int targetScore = 101;
-    private int humanWins = 0;
-    private int computerWins = 0;
-    private int rollsRemaining = 3;
-    private boolean gameActive = true;
-    private EditText etTargetScore;
-    private int[] currentDiceValues = new int[5];
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +24,7 @@ public class MainActivity extends AppCompatActivity {
         buttonAbout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Launch the "About" activity or show an About dialog
-                // Example: Replace AboutActivity.class with your About activity or dialog
+                // Launch the "About" activity
                 Intent intent = new Intent(MainActivity.this, AboutActivity.class);
                 startActivity(intent);
             }
@@ -55,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Start a new game or navigate to the game activity
-                // Example: Replace NewGameActivity.class with your game activity
                 Intent intent = new Intent(MainActivity.this, GameActivity.class);
                 startActivity(intent);
             }

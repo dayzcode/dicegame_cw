@@ -9,8 +9,6 @@
     android:padding="16dp"
     tools:context=".GameActivity">
 
-
-
     <!-- Button to go back to the main activity -->
     <Button
         android:id="@+id/btnBackToMain"
@@ -46,7 +44,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="32dp">
-
 
         <!-- Dice Image 1 -->
         <ImageView
@@ -163,6 +160,8 @@
             android:layout_gravity="center"
             android:adjustViewBounds="true" />
     </LinearLayout>
+
+    <!-- Score display -->
 
     <!-- Score display -->
     <TextView
