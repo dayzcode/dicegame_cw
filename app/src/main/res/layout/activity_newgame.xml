@@ -9,6 +9,8 @@
     android:padding="16dp"
     tools:context=".GameActivity">
 
+
+
     <!-- Button to go back to the main activity -->
     <Button
         android:id="@+id/btnBackToMain"

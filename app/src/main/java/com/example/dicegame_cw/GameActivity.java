@@ -3,6 +3,8 @@ package com.example.dicegame_cw;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,6 +15,7 @@ import android.widget.TextView;
 import java.util.Arrays;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 public class GameActivity extends AppCompatActivity {
 
@@ -112,9 +115,12 @@ public class GameActivity extends AppCompatActivity {
 
             // Update human player's dice images
             for (int i = 0; i < 5; i++) {
-                updateDiceImage(i, computerDiceValues[i], true); // for the computer
-
+                currentDiceValues[i] = rollDice(); // Simulate rolling a die for the human player
+                updateDiceImage(i, currentDiceValues[i], false); // Update human player's dice image
             }
+
+            // Update computer player's dice images (you might need to adapt this part)
+            computerTurn();
 
             updateScore();
 
@@ -123,11 +129,10 @@ public class GameActivity extends AppCompatActivity {
 
             if (humanScore >= targetScore) {
                 showGameResult(true);
-            } else {
-                computerTurn();
             }
         }
     }
+
 
 
 
@@ -203,17 +208,23 @@ public class GameActivity extends AppCompatActivity {
         gameActive = false;
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Game Over!");
+
         if (isHumanWinner) {
             builder.setMessage("You win!");
+            builder.setIcon(ContextCompat.getDrawable(this, R.drawable.green_background));
             humanWins++;
         } else {
             builder.setMessage("You lose.");
+            builder.setIcon(ContextCompat.getDrawable(this, R.drawable.red_background));
             computerWins++;
         }
+
         builder.setPositiveButton("New Game", (dialog, which) -> resetGame());
         builder.setCancelable(false);
         builder.show();
     }
+
+
 
     private void resetGame() {
         humanScore = 0;
